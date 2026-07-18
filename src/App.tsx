@@ -1,5 +1,4 @@
 import { useActionState } from "react";
-
 import "./App.css";
 
 function App() {
@@ -32,7 +31,7 @@ function App() {
 
   const [state, formAction, isPending] = useActionState(login, {
     success: null,
-    err: "",
+    errorMessage: "",
   });
 
   return (
@@ -52,7 +51,7 @@ function App() {
           {isPending ? "Submitting..." : "Submit"}
         </button>
         {state.success && <p>Login successful</p>}
-        {state.success === false && <p>{state.err}</p>}
+        {state.success === false && <p>{state.errorMessage}</p>}
         {state.message && <p>{state.message}</p>}
       </form>
       <h2>emilys</h2>
